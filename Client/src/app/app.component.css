@@ -1,0 +1,16 @@
+/* .text{ color: #0b0f0b;}
+.background{color:  #eaf0eb;}
+.primary{color:  #3d3c53;}
+.secondary {color: #d0ddd0;}
+.accent{color:  #82605e;} */
+
+:root {
+    --text: #0b0f0b;
+    --background: #eaf0eb;
+    --primary: #3d3c53;
+    --secondary: #d0ddd0;
+    --accent: #82605e;
+  }
+body{
+    background-color: var(--background);
+}
