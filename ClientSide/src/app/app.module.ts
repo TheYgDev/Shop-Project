@@ -11,6 +11,8 @@ import { ItemComponent } from './Components/item/item.component';
 import { ItempageComponent } from './Components/itempage/itempage.component';
 import { NewitemComponent } from './Components/newitem/newitem.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { HeaderComponent } from './Components/header/header.component';
+import { RelatedItemsComponent } from './Components/related-items/related-items.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FilterPipe } from './shared/filter.pipe';
     ItemComponent,
     ItempageComponent,
     NewitemComponent,
-    FilterPipe
+    FilterPipe,
+    HeaderComponent,
+    RelatedItemsComponent
   ],
   imports: [
     BrowserModule,

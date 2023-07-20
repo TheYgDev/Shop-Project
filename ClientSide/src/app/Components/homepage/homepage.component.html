@@ -1,16 +1,12 @@
-<div class="container">
-    <div class="row">
-        <input type="text" [(ngModel)]="searchKey" placeholder="Search item">
-        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'name'">
-            <div class="card col-md-3">
-                <img [src]="item.image" alt="">
-                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
-                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-                <p><strong>Price:</strong> ${{item.price}}</p>
-                <button class="btn btn-danger">Empty Cart</button>
-                <!-- <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button> -->
-            </div>
-        </ng-container>
 
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <ng-container *ngFor="let Product of filterCategory | filter:searchKey:'name'">
+          <app-item [item]="Product"></app-item>
+        </ng-container>
+      </div>
     </div>
-</div>
+  </section>
+
+
