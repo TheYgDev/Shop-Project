@@ -16,15 +16,7 @@ export class ItemService {
     return this.httpClient.get(this.Url)
   }
   getByCategory(category: Category) {
-    let list: Item[] =[];
-    this.httpClient.get<Item>(this.Url)
-      .subscribe((items) => { 
-        list = items as Item[];
-        list.filter(item => item.category!.id = category.id)
-      });
-    
-    // return list;
-    return [new Item(),new Item(),new Item(),new Item()]
+      return this.httpClient.get(this.Url+"categories/"+category.id)
   }
 
   getById(id: number) {

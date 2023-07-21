@@ -39,13 +39,13 @@ export class HomepageComponent {
       this.searchKey = val;
     })
     // to remove
-    let names = [,"shirt", "shoes", "phone", "comp","something","ss","gd","gh","th"]
-    let conter = 1;
-    this.productList.forEach(element => {      
-      element.name = names[conter];
-      element.id = conter++;
-    });
-      this.filterCategory = this.productList;
+    // let names = [,"shirt", "shoes", "phone", "comp","something","ss","gd","gh","th"]
+    // let conter = 1;
+    // this.productList.forEach(element => {      
+    //   element.name = names[conter];
+    //   element.id = conter++;
+    // });
+    //   this.filterCategory = this.productList;
   }
 
   filter(category:Category){

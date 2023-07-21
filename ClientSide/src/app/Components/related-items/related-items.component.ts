@@ -11,7 +11,11 @@ import { ItemService } from 'src/app/Services/item.service';
 export class RelatedItemsComponent {
   @Input() category: Category = new Category();
   relatedItems: Item[] = [];
+
   constructor(private apiService: ItemService) {
-    this.relatedItems = apiService.getByCategory(this.category)
+    this.apiService.getByCategory(this.category).subscribe(data => {
+      this.relatedItems = data as Item[];
+    })
+    console.log(this.category.id);
   }
 }
