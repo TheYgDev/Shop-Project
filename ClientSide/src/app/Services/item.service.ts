@@ -16,7 +16,8 @@ export class ItemService {
     return this.httpClient.get(this.Url)
   }
   getByCategory(category: Category) {
-      return this.httpClient.get(this.Url+"categories/"+category.id)
+    console.log(category.id);
+      return this.httpClient.get(this.Url +`categories/${category.id}`)
   }
 
   getById(id: number) {
