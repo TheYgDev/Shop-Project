@@ -10,26 +10,11 @@ import { ItemService } from 'src/app/Services/item.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  productList: Item[] = [
-    new Item() ,
-    new Item(),
-    new Item(),
-    new Item(),
-    new Item(),
-    new Item(),
-    new Item(),
-    new Item(),
-    new Item(),
-  ];
+  productList: Item[] = [];
+  
   searchKey = "";
   public filterCategory : any
   constructor(private apiService: ItemService,private cartService : CartService) {
-    // this.apiService.get().subscribe(items => {
-    //   this.productList = items as Item[];
-    //   this.filterCategory = items;
-    // });
-
-    //or
     this.apiService.get().subscribe(res => {
       this.productList = res as Item[];
       this.filterCategory = res;
@@ -38,14 +23,6 @@ export class HomepageComponent {
     this.cartService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
-    // to remove
-    // let names = [,"shirt", "shoes", "phone", "comp","something","ss","gd","gh","th"]
-    // let conter = 1;
-    // this.productList.forEach(element => {      
-    //   element.name = names[conter];
-    //   element.id = conter++;
-    // });
-    //   this.filterCategory = this.productList;
   }
 
   filter(category:Category){

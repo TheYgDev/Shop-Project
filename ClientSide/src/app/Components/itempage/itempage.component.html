@@ -21,4 +21,6 @@
       </div>
     </div>
   </div>
-<app-related-items></app-related-items>
+  <p>{{category!.id}}</p>
+  <p>{{category!.name}}</p>
+<app-related-items [num]="10" [category]="category!"></app-related-items>

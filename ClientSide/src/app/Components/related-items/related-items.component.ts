@@ -9,13 +9,16 @@ import { ItemService } from 'src/app/Services/item.service';
   styleUrls: ['./related-items.component.css']
 })
 export class RelatedItemsComponent {
-  @Input() category: Category = new Category();
+  @Input() category: Category = new Category(); 
+  @Input() num: number = 0;
   relatedItems: Item[] = [];
 
   constructor(private apiService: ItemService) {
     this.apiService.getByCategory(this.category).subscribe(data => {
       this.relatedItems = data as Item[];
     })
-    console.log(this.category.id);
+    console.log(this.category!.id);
+    console.log(this.num);
   }
+  
 }
