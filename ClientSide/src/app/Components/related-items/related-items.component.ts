@@ -18,6 +18,7 @@ export class RelatedItemsComponent {
     this.apiService.getByCategory(this.category).subscribe(data => {
       this.relatedItems = data as Item[];
       this.relatedItems = this.relatedItems.filter(item => item.id != this.itemId);
+      this.relatedItems = this.relatedItems.splice(0,4)
     })
   }, 50);
   }

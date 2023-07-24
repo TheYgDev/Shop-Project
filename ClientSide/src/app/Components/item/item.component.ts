@@ -9,4 +9,8 @@ import { Item } from 'src/app/Modules/Item';
 export class ItemComponent {
   @Input() item: Item = new Item();
 
+
+  cancleRoute(event: MouseEvent) {
+    event.stopPropagation();
+  }
 }

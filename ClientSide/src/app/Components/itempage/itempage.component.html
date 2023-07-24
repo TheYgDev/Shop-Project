@@ -2,7 +2,7 @@
     <div class="container px-4 px-lg-5 my-5">
       <div class="row gx-4 gx-lg-5 align-items-center">
         <div class="col-md-6">
-          <img class="card-img-top mb-5 mb-md-0" [src]="item.image" alt="...">
+          <img height="700" width="630" class="card-img-top mb-5 mb-md-0" [src]="item.image" alt="...">
         </div>
         <div class="col-md-6">
           <h1 class="display-5 fw-bolder">{{item.name}}</h1>
@@ -12,10 +12,14 @@
           <p class="lead">{{item.description}}</p>
           <div class="d-flex">
             <input id="inputQuantity" class="form-control text-center me-3" type="number" value="1" style="max-width: 3rem">
-            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+            <app-add-to-cart [item]="item" class="btn flex-shrink-0" type="button">
               <i class="bi-cart-fill me-1"></i>
-              Add to cart
-            </button>
+            </app-add-to-cart>
+          </div>
+          <div class="mt-5">
+            <p class="mt-1 font-weight-bold">City of Origin: {{item.city}}</p>
+            <p class="mt-1">Phone of Seller: {{item.phone_of_seller}}</p>
+            <p class="mt-1">Date of Arrival: {{item.dateOfPublish | date:'dd/MM/yyyy'}}</p>
           </div>
         </div>
       </div>

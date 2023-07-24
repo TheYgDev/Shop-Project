@@ -13,6 +13,8 @@ import { NewitemComponent } from './Components/newitem/newitem.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { HeaderComponent } from './Components/header/header.component';
 import { RelatedItemsComponent } from './Components/related-items/related-items.component';
+import { StringShortenPipe } from './shared/string-shorten.pipe';
+import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RelatedItemsComponent } from './Components/related-items/related-items.
     NewitemComponent,
     FilterPipe,
     HeaderComponent,
-    RelatedItemsComponent
+    RelatedItemsComponent,
+    StringShortenPipe,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,

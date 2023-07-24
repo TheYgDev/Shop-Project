@@ -9,4 +9,5 @@ export class Item {
     city?: string ="defualt city";
     phone_of_seller?: string = "defualt phone";
     category?: Category = new Category();
+    dateOfPublish?: Date = new Date();
 }

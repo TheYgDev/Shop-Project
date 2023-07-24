@@ -1,7 +1,7 @@
 
 <div class="col mb-5">
   <div>
-  <div [routerLink]="'/details/'+item.id"  class="card cardSize h-100 pointer">
+  <div [routerLink]="'/details/'+item.id" class="card cardSize h-100 pointer">
     <!-- Product image -->
     <img
       class="card-img-top imgSize"
@@ -11,14 +11,14 @@
     <div class="card-body p-4">
       <div class="text-center">
         <!-- Product name -->
-        <h5 class="fw-bolder">{{item.name}}</h5>
+        <h5 class="name fw-bolder">{{item.name! | stringShorten:50}}</h5>
         <!-- Product price -->
-       {{item.price | currency:"USD":true}}
+          {{item.price | currency:"USD":true}}
       </div>
     </div>
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
       <div class="text-center">
-        <a class="btn btn-outline-dark mt-auto" >Add to cart</a>
+        <app-add-to-cart (click)="cancleRoute($event)"></app-add-to-cart>
       </div>
     </div>
   </div>
