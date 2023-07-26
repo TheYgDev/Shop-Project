@@ -49,7 +49,9 @@
         <span class="underline"></span>
       </div>
 
-        <app-drop-down class="drop" [selected]="coin" (selectedValue)="changeCurrency($event)"></app-drop-down>
+      <div class="mb-2 mb-lg-0 ms-lg-4 drop">
+        <app-drop-down  [selected]="coin" (selectedValue)="changeCurrency($event)"></app-drop-down>
+      </div>
 
       <form class="d-flex">
         <button
