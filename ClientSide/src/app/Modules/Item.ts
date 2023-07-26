@@ -1,13 +1,18 @@
 import { Category } from "./category";
 
 export class Item {
-    id?: number = 0;
-    name?: string= "default item";
-    price?: number = 1;
-    description?: string = "this is defualt item";
-    image?: string = "../assets/defaultPic.png";
-    city?: string ="defualt city";
-    phone_of_seller?: string = "defualt phone";
-    category?: Category = new Category();
-    dateOfPublish?: Date = new Date();
+    constructor(
+        public id: number = 0,
+        public name: string = "default item",
+        public price: number = 1,
+        public description: string = "this is default item",
+        public image: string = "../assets/defaultPic.png",
+        public city: string = "default city",
+        public phone_of_seller: string = "default phone",
+        public category: Category = new Category(),
+        public dateOfPublish: Date = new Date(),
+        public qnt: number = 0,
+        public qntBuy: number = 1
+      ) {}
+
 }

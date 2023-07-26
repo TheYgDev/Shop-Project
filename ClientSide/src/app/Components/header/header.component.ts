@@ -16,7 +16,7 @@ export class HeaderComponent {
     this.cartService.loadCart();
     this.cartService.getProducts()
     .subscribe(res=>{
-      this.totalItem = res.length;
+      this.totalItem = this.cartService.howManyInCart();
     })
   }
 

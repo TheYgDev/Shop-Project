@@ -11,10 +11,13 @@ import { ItemComponent } from './Components/item/item.component';
 import { ItempageComponent } from './Components/itempage/itempage.component';
 import { NewitemComponent } from './Components/newitem/newitem.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { ItemAdapter } from './adapters';
 import { HeaderComponent } from './Components/header/header.component';
 import { RelatedItemsComponent } from './Components/related-items/related-items.component';
 import { StringShortenPipe } from './shared/string-shorten.pipe';
 import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.component';
+import { CartPageComponent } from './Components/cart/cart-page/cart-page.component';
+import { CartItemComponent } from './Components/cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.compone
     HeaderComponent,
     RelatedItemsComponent,
     StringShortenPipe,
-    AddToCartComponent
+    AddToCartComponent,
+    CartPageComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.compone
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ItemAdapter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

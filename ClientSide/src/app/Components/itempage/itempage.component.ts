@@ -21,6 +21,7 @@ export class ItempageComponent {
         this.item = item as Item;
         this.category = this.item.category as Category
       });
+      console.log(this.item);
     });
   }
 }
