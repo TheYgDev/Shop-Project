@@ -1,4 +1,4 @@
-import { Component ,Input } from '@angular/core';
+import { Component ,Input, OnChanges, SimpleChanges  } from '@angular/core';
 import { Item } from 'src/app/Modules/Item';
 import { Category } from 'src/app/Modules/category';
 import { ItemService } from 'src/app/Services/item.service';
@@ -13,13 +13,18 @@ export class RelatedItemsComponent {
   @Input() itemId: Number = 0; 
   relatedItems: Item[] = [];
 
-  constructor(private apiService: ItemService) {
-    setTimeout(() => {
+  constructor(private apiService: ItemService) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['category'] && !changes['category'].firstChange) {
+      this.getRelatedItems();
+    }
+  }
+  private getRelatedItems() {
     this.apiService.getByCategory(this.category).subscribe(data => {
       this.relatedItems = data as Item[];
-      this.relatedItems = this.relatedItems.filter(item => item.id != this.itemId);
-      this.relatedItems = this.relatedItems.splice(0,4)
-    })
-  }, 50);
+      this.relatedItems = this.relatedItems.filter(item => item.id !== this.itemId);
+      this.relatedItems = this.relatedItems.slice(0, 4);
+    });
   }
 }

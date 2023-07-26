@@ -13,6 +13,7 @@ export class ItempageComponent {
   item: Item = new Item()
   category: Category = new Category()
   id: number = 0;
+  howMany: number = 1;
   constructor(private activated: ActivatedRoute, private serv: ItemService) {
     this.activated.params.subscribe(params => {
       this.id = params['id'];

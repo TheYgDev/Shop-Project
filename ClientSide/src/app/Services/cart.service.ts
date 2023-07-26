@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
-  public cartItemList : any =[]
+  public cartItemList : any = []
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
 
@@ -15,15 +15,27 @@ export class CartService {
     return this.productList.asObservable();
   }
 
+  loadCart(): void {
+    this.cartItemList = JSON.parse(localStorage.getItem("cart_items")!) ?? [];
+    this.productList.next(this.cartItemList);
+  }
+
+  private saveCart(): void {
+    localStorage.setItem('cart_items', JSON.stringify(this.cartItemList)); 
+  }
+  
   setProduct(product : any){
     this.cartItemList.push(...product);
     this.productList.next(product);
+    this.saveCart();
   }
+
   addtoCart(product : any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList)
+    this.saveCart();
   }
   getTotalPrice() : number{
     let grandTotal = 0;
@@ -34,8 +46,9 @@ export class CartService {
   }
   removeCartItem(product: any){
     this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
+      if(product.id === a.id){
+        this.cartItemList.splice(index, 1);
+        this.saveCart();
       }
     })
     this.productList.next(this.cartItemList);
@@ -43,5 +56,6 @@ export class CartService {
   removeAllCart(){
     this.cartItemList = []
     this.productList.next(this.cartItemList);
+    this.saveCart();
   }
 }

@@ -11,8 +11,8 @@
           </div>
           <p class="lead">{{item.description}}</p>
           <div class="d-flex">
-            <input id="inputQuantity" class="form-control text-center me-3" type="number" value="1" style="max-width: 3rem">
-            <app-add-to-cart [item]="item" class="btn flex-shrink-0" type="button">
+            <input [(ngModel)]="howMany" class="form-control text-center me-3" type="number" value="1" style="max-width: 3rem">
+            <app-add-to-cart [howMany]="howMany" [item]="item" class="btn flex-shrink-0" type="button">
               <i class="bi-cart-fill me-1"></i>
             </app-add-to-cart>
           </div>

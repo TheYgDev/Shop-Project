@@ -13,6 +13,7 @@ export class HeaderComponent {
   constructor(private cartService: CartService) { }
   
   ngOnInit(): void {
+    this.cartService.loadCart();
     this.cartService.getProducts()
     .subscribe(res=>{
       this.totalItem = res.length;
