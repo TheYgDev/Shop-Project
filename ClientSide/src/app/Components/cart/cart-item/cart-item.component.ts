@@ -1,6 +1,7 @@
 import { Component ,Input } from '@angular/core';
 import { Item } from 'src/app/Modules/Item';
 import { CartService } from 'src/app/Services/cart.service';
+import { Globals } from 'src/app/globals/globals';
 
 @Component({
   selector: 'app-cart-item',
@@ -9,8 +10,15 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CartItemComponent {
   @Input() item: Item = new Item();
+  coin:string =""
+  rate: number = 1;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,private global:Globals) {
+    global.currency.subscribe(currency => this.coin = currency)
+    global.rate.subscribe(rate => { this.rate = rate;})
+    
+
+   }
   
   decrese() {
     this.cartService.removeCartItem(this.item)

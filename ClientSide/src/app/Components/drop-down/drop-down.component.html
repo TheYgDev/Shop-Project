@@ -1,0 +1,3 @@
+<select (change)="onChange($event)" [(ngModel)]="selected">
+  <option *ngFor="let c of coins" [value]="c.value">{{ c.name }}</option>
+</select>

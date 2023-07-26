@@ -1,52 +1,79 @@
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" routerLink="/">CosmoMercado</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" routerLink="/" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">Shop</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/">All Products</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" routerLink="/">Popular Items</a></li>
-              <li><a class="dropdown-item" routerLink="/">New Arrivals</a></li>
-            </ul>
-          </li>
-        </ul>
-        <div class="input-wrapper mb-2 mb-lg-0 ms-lg-4">
-            <input class="input-box" type="text" [(ngModel)]="searchTerm"  (keyup)="search($event)" placeholder="Search Product">
-            <span class="underline"></span>
-          </div>          
-        <form class="d-flex">
-          <button class="btn btn-outline-dark" [routerLink]="'cart'" type="submit">
-            <i class="bi-cart-fill me-1"></i>
-            Cart
-            <span class="badge bg-dark text-white ms-1 rounded-pill">{{totalItem}}</span>
-          </button>
-        </form>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" routerLink="/">CosmoMercado</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            id="navbarDropdown"
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >Shop</a
+          >
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/">All Products</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" routerLink="/">Popular Items</a></li>
+            <li><a class="dropdown-item" routerLink="/">New Arrivals</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="input-wrapper mb-2 mb-lg-0 ms-lg-4">
+        <input
+          class="input-box"
+          type="text"
+          [(ngModel)]="searchTerm"
+          (keyup)="search($event)"
+          placeholder="Search Product"
+        />
+        <span class="underline"></span>
       </div>
-    </div>
-  </nav>
 
-  <!-- Header -->
-  <header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-      <div class="text-center text-white">
-        <h1 class="display-4 fw-bolder">Shop in style</h1>
-        <p class="lead fw-normal text-white-50 mb-0">Shop around the cosmos</p>
-      </div>
+        <app-drop-down class="drop" [selected]="coin" (selectedValue)="changeCurrency($event)"></app-drop-down>
+
+      <form class="d-flex">
+        <button
+          class="btn btn-outline-dark"
+          [routerLink]="'cart'"
+          type="submit"
+        >
+          <i class="bi-cart-fill me-1"></i>
+          Cart
+          <span class="badge bg-dark text-white ms-1 rounded-pill">{{
+            totalItem
+          }}</span>
+        </button>
+      </form>
     </div>
-  </header>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Shop in style</h1>
+      <p class="lead fw-normal text-white-50 mb-0">Shop around the cosmos</p>
+    </div>
+  </div>
+</header>

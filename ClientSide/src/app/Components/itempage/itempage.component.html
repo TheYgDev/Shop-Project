@@ -6,8 +6,9 @@
         </div>
         <div class="col-md-6">
           <h1 class="display-5 fw-bolder">{{item.name}}</h1>
-          <div class="fs-5 mb-5">
-            <span>${{item.price}}</span>
+          <h3>{{item.category.name}}</h3>
+          <div class="fs-5 mt-4 mb-2">
+            <span>{{item.price | exchange :rate | currency:coin:true}}</span>
           </div>
           <p class="lead">{{item.description}}</p>
           <div class="d-flex">
@@ -17,10 +18,10 @@
             </app-add-to-cart>
           </div>
           <div class="mt-5">
-            <p class="mt-1 font-weight-bold">City of Origin: {{item.city}}</p>
-            <p class="mt-1">Phone of Seller: {{item.phone_of_seller}}</p>
-            <p class="mt-1">Date of arrival: {{item.dateOfPublish | date:'dd/MM/yyyy'}}</p>
-            <p class="mt-1">In stock: {{item.qnt}}</p>
+            <h6 class="mt-3 font-weight-bold">City of Origin: {{item.city}}</h6>
+            <h6 class="mt-3">Phone of Seller: {{item.phone_of_seller}}</h6>
+            <h6 class="mt-3">Date of arrival: {{item.dateOfPublish | date:'dd/MM/yyyy'}}</h6>
+            <h6 class="mt-3">In stock: {{item.qnt}}</h6>
           </div>
         </div>
       </div>

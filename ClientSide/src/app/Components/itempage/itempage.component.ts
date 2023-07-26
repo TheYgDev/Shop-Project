@@ -1,8 +1,10 @@
-import { Component  } from '@angular/core';
-import { Item } from 'src/app/Modules/Item';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ItemService } from 'src/app/Services/item.service';
+import { Item } from 'src/app/Modules/Item';
 import { Category } from 'src/app/Modules/category';
+import { ItemService } from 'src/app/Services/item.service';
+import { Globals } from 'src/app/globals/globals';
+
 
 @Component({
   selector: 'app-itempage',
@@ -14,14 +16,19 @@ export class ItempageComponent {
   category: Category = new Category()
   id: number = 0;
   howMany: number = 1;
-  constructor(private activated: ActivatedRoute, private serv: ItemService) {
+  coin:string =""
+  rate: number = 1;
+
+  constructor(private activated: ActivatedRoute, private serv: ItemService,private global:Globals) {
     this.activated.params.subscribe(params => {
       this.id = params['id'];
       this.serv.getById(this.id).subscribe(item => {
         this.item = item as Item;
         this.category = this.item.category as Category
       });
-      console.log(this.item);
+      global.currency.subscribe(currency => this.coin = currency)
+    global.rate.subscribe(rate => { this.rate = rate;})
+      
     });
   }
 }

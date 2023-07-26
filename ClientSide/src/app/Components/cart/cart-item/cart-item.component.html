@@ -8,6 +8,6 @@
         <div class="col">
             <a (click)="decrese()" class="changer">-</a><a class="border">{{item.qntBuy}}</a><a (click)="add()" class="changer">+</a>
         </div>
-        <div class="col">&euro; {{item.price}} <span (click)="remove()" class="close mt-1">&#10005;</span></div>
+        <div class="col">{{item.price | exchange :rate|currency:coin:true}} <span (click)="remove()" class="close mt-1">&#10005;</span></div>
     </div>
 </div>
