@@ -1,3 +1,4 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 .input-wrapper {
   position: relative;
   width: 30%;
@@ -30,7 +31,6 @@
   border-color: #08AEEA;
   outline: none;
 }
-
 .input-box:focus + .underline {
   transform: scaleX(1);
 }

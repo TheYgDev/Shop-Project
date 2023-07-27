@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from 'src/app/Modules/Item';
 import { Category } from 'src/app/Modules/category';
@@ -17,7 +17,7 @@ export class HomepageComponent {
   categoryList: Category[] = [];
   filterCategory: any;
   sorts: any;
-  chosenSort: any;
+  chosenSort: any =null;
 
   constructor(
     private activated: ActivatedRoute,
@@ -25,41 +25,33 @@ export class HomepageComponent {
     private cartService: CartService,
     private global: Globals
   ) {
+    this.sorts = global.sorts;
+  }
 
-      this.sorts = global.sorts;
-    
-    this.activated.params.subscribe((params) => {
-      let sort = params['prop'] ?? null;
-      if (!sort) {
-        this.chosenSort = this.global.sorts[0];
-        return;
-      }
-
-      let order = params['order'] ?? null;
-      if (!order) order = 'desc';
-
-      this.chosenSort = this.sorts.find((s: any) => {
-        return s.prop === sort && s.order === order;
-      });
-    });
-
+  ngOnInit(): void {
     this.apiService.get().subscribe((res) => {
       this.productList = res as Item[];
       this.filterCategory = res;
-    });
-
-    this.apiService.getCategories().subscribe((res) => {
-      this.categoryList = (res as Category[]).map((category) => ({
-        ...category,
-        name: this.capitalizeFirstLetter(category.name),
-      }));
-      this.categoryList.unshift(new Category(0, 'All'));
-    });
-
-    this.cartService.search.subscribe((val: any) => {
-      this.searchKey = val;
-    });
-
+      this.activated.params.subscribe((params) => {
+        const sort = params['prop'] ?? null;
+        const order = params['order'] ?? 'desc';
+  
+        this.chosenSort = this.sorts.find((s: any) => s.prop === sort && s.order === order) ?? this.sorts[0];
+        
+      });
+      this.apiService.getCategories().subscribe((res) => {
+        this.categoryList = (res as Category[]).map((category) => ({
+          ...category,
+          name: this.capitalizeFirstLetter(category.name),
+        }));
+        this.categoryList.unshift(new Category(0, 'All'));
+      });
+  
+      this.cartService.search.subscribe((val: any) => {
+        this.searchKey = val;
+      });
+  
+    }); 
   }
 
   filter(category: Category) {
@@ -74,6 +66,9 @@ export class HomepageComponent {
   }
 
   sort<T>(sorter: any) {
+    if (!sorter) {
+      return
+    }
     let property: keyof T = sorter.prop;
     let sortOrder: SortOrder = sorter.order;
     if (!property || !sortOrder) {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from 'src/app/Services/cart.service';
 import { RatesService } from 'src/app/Services/rates.service';
 import { Globals } from 'src/app/globals/globals';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class HeaderComponent {
   coin: any;
   coinList: any[] = []
   
-  constructor(private cartService: CartService, private global: Globals,private rateService: RatesService ) { 
+  constructor(private router: Router,private cartService: CartService, private global: Globals,private rateService: RatesService ) { 
     this.coinList = this.global.coinList;
     global.currency.subscribe(currency => {
       if (currency) {
@@ -40,9 +41,9 @@ export class HeaderComponent {
 
 
   search(event:any){
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    console.log(this.searchTerm);
+    this.searchTerm = (event as HTMLInputElement).value;
     this.cartService.search.next(this.searchTerm);
+    this.router.navigateByUrl('/');
   }
 
   changeCurrency(coinValue: any) {

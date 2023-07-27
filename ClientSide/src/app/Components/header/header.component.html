@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" routerLink="/">CosmoMercado</a>
+    <a class="navbar-brand" href="/">CosmoMercado</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/">About</a>
@@ -31,21 +31,25 @@
             >Shop</a
           >
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="/">All Products</a></li>
+            <li><a class="dropdown-item" href="/">All Products</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" routerLink="/">Popular Items</a></li>
-            <li><a class="dropdown-item" routerLink="/dateOfPublish/desc">New Arrivals</a></li>
+            <li><a class="dropdown-item" routerLink="sort/dateOfPublish/desc">New Arrivals</a></li>
           </ul>
         </li>
       </ul>
       <div class="input-wrapper mb-2 mb-lg-0 ms-lg-4">
-        <input
+        <div class="d-flex w-100">
+        <input #input
           class="input-box"
           type="text"
           [(ngModel)]="searchTerm"
-          (keyup)="search($event)"
+          (keyup.enter)="search(input)"
           placeholder="Search Product"
         />
+        
+        <i (click)="search(input)" class="bi bi-search position-absolute end-0 fs-4 w-20 pointer align-self-center"></i>
+      </div>
         <span class="underline"></span>
       </div>
 

@@ -6,13 +6,17 @@ import { CartPageComponent } from './Components/cart/cart-page/cart-page.compone
 
 const routes: Routes = [
   {path: '', component:HomepageComponent},
-  {path: ':prop/:order', component:HomepageComponent},
   {path: 'details/:id', component:ItempageComponent},
+  {path: 'sort/:prop/:order', component:HomepageComponent},
   {path: 'cart', component:CartPageComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    {
+      scrollPositionRestoration: 'enabled',
+      onSameUrlNavigation: 'reload'
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

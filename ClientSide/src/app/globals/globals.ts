@@ -17,7 +17,7 @@ export class Globals{
   ];
 
   public sorts = [   
-    
+    { prop:"defualt" , order :"nothing",name: "Filter - None"},
     { prop:'price' , order : SortOrder.Ascending,name: "Lowest Price"},
     { prop:'price' , order : SortOrder.Descending,name: "Highest Price"},
     { prop:'dateOfPublish' , order : SortOrder.Ascending,name: "Oldest Items"},
