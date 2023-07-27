@@ -1,3 +1,3 @@
-<select class="badge bg-dark text-white rounded" (change)="onChange($event)" [(ngModel)]="selected">
-  <option class="text-left" *ngFor="let c of coins" [value]="c.value">{{ c.name }}</option>
+<select class="badge bg-dark text-white rounded" (change)="onChange()" [(ngModel)]="selected">
+  <option class="text-left" *ngFor="let c of list" [ngValue]="c">{{ c.name }}</option>
 </select>

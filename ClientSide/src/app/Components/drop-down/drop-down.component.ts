@@ -1,29 +1,23 @@
-import { Component ,Output,EventEmitter,Input} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down',
   templateUrl: './drop-down.component.html',
-  styleUrls: ['./drop-down.component.css']
+  styleUrls: ['./drop-down.component.css'],
 })
 export class DropDownchComponent {
-  @Output() selectedValue = new EventEmitter<string>();
-  @Input() selected: string = "";
-  coins = [
-    { value:"USD",name: "USD (US dollar)" },
-    { value:"ILS",name: "ILS (Israeli shakel)" },
-    { value:"EUR",name: "EUR (Euro)" },
-    { value:"JPY",name: "JPY (Japanese yen)" },
-    { value:"GBP",name: "GBP (Pound sterling)" },
-    { value:"AUD",name: "AUD (Australian dollar)" },
-    {value:"CAD",name:"CAD (Canadian dollar)"}
-    
-  ]
-  constructor() {
-    
+  @Output() selectedValue = new EventEmitter<any>();
+  @Input() selected: any;
+  @Input() list: any[] = [];
+
+  constructor() { }
+  
+  ngOnInit(): void {
+    this.selectedValue.emit(this.selected);
   }
 
-  onChange(coin: any) {
-    console.log(coin.target.value);
-    this.selectedValue.emit(coin.target.value);
+  onChange() {
+    console.log(this.selected.id);
+    this.selectedValue.emit(this.selected);
   }
 }

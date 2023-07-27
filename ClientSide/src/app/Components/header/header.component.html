@@ -50,7 +50,7 @@
       </div>
 
       <div class="mb-2 mb-lg-0 ms-lg-4 drop">
-        <app-drop-down  [selected]="coin" (selectedValue)="changeCurrency($event)"></app-drop-down>
+        <app-drop-down  [list]="coinList" [selected]="coin" (selectedValue)="changeCurrency($event)"></app-drop-down>
       </div>
 
       <form class="d-flex">

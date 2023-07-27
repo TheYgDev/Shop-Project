@@ -12,17 +12,20 @@ import { Globals } from 'src/app/globals/globals';
 export class HeaderComponent {
   public totalItem : number = 0;
   public searchTerm !: string;
-  coin: string = "";
-  conter = 0;
+  coin: any;
+  coinList: any[] = []
+  
   constructor(private cartService: CartService, private global: Globals,private rateService: RatesService ) { 
+    this.coinList = this.global.coinList;
     global.currency.subscribe(currency => {
       if (currency) {
         this.rateService.get(currency).subscribe((rates) => {
           this.global.rate.next(rates as number);
         });
       }
-      this.coin = currency;
+      this.coin = this.coinList.find(coin => currency === coin.id);
     });
+   
   }
   
   ngOnInit(): void {
@@ -42,8 +45,9 @@ export class HeaderComponent {
     this.cartService.search.next(this.searchTerm);
   }
 
-  changeCurrency(coinValue:string) {
-    this.global.currency.next(coinValue);
-    this.global.saveCoin();
+  changeCurrency(coinValue: any) {
+    console.log(coinValue.id);
+    this.global.currency.next(coinValue.id);
+    // this.global.saveCoin();
   }
 }

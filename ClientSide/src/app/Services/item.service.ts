@@ -19,6 +19,9 @@ export class ItemService {
     return this.httpClient.get(this.Url)
       .pipe(map(this.itemAdapter.adaptArray));
   }
+  getCategories() {
+    return this.httpClient.get(this.Url + "categories"); 
+  }
   getByCategory(category: Category):Observable<Item[]> {
     console.log(category.id);
     return this.httpClient.get(this.Url + `categories/${category.id}`)

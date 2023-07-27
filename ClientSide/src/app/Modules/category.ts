@@ -1,4 +1,3 @@
 export class Category {
-    id?: number = 0;
-    name?: string = "default category";
+    constructor(public id: number =0, public name: string = "default") { }
 }
