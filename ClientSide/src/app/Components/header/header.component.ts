@@ -46,8 +46,7 @@ export class HeaderComponent {
   }
 
   changeCurrency(coinValue: any) {
-    console.log(coinValue.id);
     this.global.currency.next(coinValue.id);
-    // this.global.saveCoin();
+    this.global.saveCoin();
   }
 }

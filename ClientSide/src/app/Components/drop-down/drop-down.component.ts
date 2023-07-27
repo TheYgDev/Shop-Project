@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output ,SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-drop-down',
@@ -16,8 +16,13 @@ export class DropDownchComponent {
     this.selectedValue.emit(this.selected);
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['selected'] && !changes['selected'].firstChange) {
+      this.onChange();
+    }
+  }
+
   onChange() {
-    console.log(this.selected.id);
     this.selectedValue.emit(this.selected);
   }
 }

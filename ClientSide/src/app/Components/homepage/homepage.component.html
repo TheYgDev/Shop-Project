@@ -3,7 +3,7 @@
     <div class="container px-4 px-lg-5 mt-5">
       <div class="d-flex justify-content-between mb-5 drop">
         <app-drop-down  [list]="categoryList" [selected]="categoryList[0]" (selectedValue)="filter($event)"></app-drop-down>
-        <app-drop-down  [list]="sorts" [selected]="sorts[0]" (selectedValue)="sort($event)"></app-drop-down>
+        <app-drop-down  [list]="sorts" [selected]="chosenSort" (selectedValue)="sort($event)"></app-drop-down>
       </div>
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         <ng-container *ngFor="let Product of filterCategory | filter:searchKey:'name'">
