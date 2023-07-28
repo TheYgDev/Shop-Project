@@ -31,7 +31,7 @@
                 <div class="col">TOTAL PRICE</div>
                 <div class="col text-right">{{totalPrice | exchange :rate  | currency:coin:"symbol"}}</div>
             </div>
-            <button class="btn">CHECKOUT</button>
+            <button (click)="checkOut()" class="btn">CHECKOUT</button>
         </div>
     </div>
     

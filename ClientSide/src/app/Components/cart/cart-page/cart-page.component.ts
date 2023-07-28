@@ -29,4 +29,43 @@ export class CartPageComponent {
     })
   }
 
+  checkAvilable(item:Item) {
+    if (item.qnt < item.qntBuy) 
+      return false;
+    
+    return true;
+  }
+
+  checkOut() {
+    let check = "";
+    this.products.forEach(item => {
+      if (!this.checkAvilable(item)) {
+        check += `The item ${item.name} has only ${item.qnt} left in stock\n`;
+      }
+    });
+    if (check.length > 0) {
+      alert(check);
+      return;
+    }
+    this.cartService.checkOut().subscribe((data: any) => {
+      console.log(data);
+      check += data.message;
+      console.log(check);
+      alert(check);
+      this.cartService.removeAllCart();
+    }, (error: any) => {
+
+      error = error.error;
+      console.log(error);
+      check += `${error.message}\n`;
+      if (error.items) {
+        error.items.forEach((item: any) => {
+        check += `The item ${item.name} has only ${item.inStock} left in stock\n`;
+        })
+      alert(check);
+      }
+    })
+
+  }
+
 }

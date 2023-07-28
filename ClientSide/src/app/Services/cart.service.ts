@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -9,8 +10,10 @@ export class CartService {
   public cartItemList : any = []
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
+  private Url = "http://localhost:8080/items/checkout"
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
 
   loadCart(): void {
     this.cartItemList = JSON.parse(localStorage.getItem("cart_items")!) ?? [];
@@ -76,18 +79,13 @@ export class CartService {
     this.productList.next(this.cartItemList);
   }
 
-  // removeCartItem(product: any){
-  //   this.cartItemList.map((a:any, index:any)=>{
-  //     if(product.id === a.id){
-  //       this.cartItemList.splice(index, 1);
-  //       this.saveCart();
-  //     }
-  //   })
-  //   this.productList.next(this.cartItemList);
-  // }
   removeAllCart(){
     this.cartItemList = []
     this.productList.next(this.cartItemList);
     this.saveCart();
+  }
+
+  checkOut() {
+    return this.httpClient.post(this.Url, this.cartItemList);   
   }
 }

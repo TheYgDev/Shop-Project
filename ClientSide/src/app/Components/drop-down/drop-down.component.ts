@@ -15,11 +15,13 @@ export class DropDownchComponent {
    }
   
   ngOnInit(): void {
-    this.selectedValue.emit(this.selected);
+    // this.selectedValue.emit(this.selected);
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes['selected'] && !changes['selected'].firstChange) {
       this.onChange();
+    }
   }
 
   onChange() {
