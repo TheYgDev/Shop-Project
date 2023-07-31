@@ -1,5 +1,5 @@
 <div class="card my-5">
-    <div class="row">
+    <form name="addNewForm" #addNewForm="ngForm" class="row p-0">
         <div class="col-md-8 cart">
             <div class="title">
                 <div class="row">
@@ -7,13 +7,20 @@
                 </div>
             </div>        
             <div class="mb-5 pb-4">
-                <input type="text" placeholder="name">
-                <select name="" id="" >
-                    <option value=""></option>
+                <div class="error" *ngIf="name.invalid && name.dirty">Name is required</div>
+                <input name="name" (ngModelChange)="item.name = $event" ngModel required #name="ngModel" type="text" placeholder="Name">
+                    
+                <div class="error" *ngIf="category.invalid && category.dirty">Category is required</div>
+                <select name="category" (ngModelChange)="item.category = $event" ngModel required #category="ngModel" >
+                    <option value="" selected>Category</option>
+                    <option *ngFor="let c of categoryList" [ngValue]="c">{{c.name}}</option>
                 </select>
-                <input type="text" placeholder="Description">
-                <input type="number" placeholder="price">
-                <input type="number" placeholder="qunataty">
+                <div class="error" *ngIf="description.invalid && description.dirty">Description is required</div>
+                <input name="description" (ngModelChange)="item.description = $event" ngModel required #description="ngModel" type="text" placeholder="Description">
+                <div class="error" *ngIf="price.invalid && price.dirty">Price is required and must be above 1</div>
+                <input name="price" (ngModelChange)="item.price = $event" ngModel required min=1 #price="ngModel" type="number" placeholder="Price (USD)">
+                <div class="error" *ngIf="qnt.invalid && qnt.dirty">Quantity is required</div>
+                <input name="qnt" (ngModelChange)="item.qnt = $event" ngModel required #qnt="ngModel" type="number" placeholder="Quantity">
             </div>   
             <div routerLink="" class="my-4 position-absolute bottom-0 back-to-shop"><a>&leftarrow;</a><span class=" text-muted">Back to shop</span></div>
         </div>
@@ -22,20 +29,23 @@
             <hr>
             <div class="row">
                 <div>
-                    <input type="file"/>
+                <div class="error" *ngIf="image.invalid && image.dirty">Image is required</div>
+                    <input name="image" (ngModelChange)="item.image = $event" ngModel required #image="ngModel" type="text" placeholder="Image Url"/>
                 </div>
                 
             </div>
           
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+            <div class="row pb-5 mb-5" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div >
-                    <input placeholder="City of origin" type="text"/>
+                <div class="error" *ngIf="city.invalid && city.dirty">City is required</div>
+                    <input name="city" (ngModelChange)="item.city = $event" ngModel required #city="ngModel" placeholder="City of origin" type="text"/>
                 </div>
                 <div class="text-right">
-                    <input placeholder="Phone of seller" type="text"/>
+                <div class="error" *ngIf="phone_of_seller.invalid && phone_of_seller.dirty">phone of seller is required</div>
+                    <input  name="phone_of_seller" (ngModelChange)="item.phone_of_seller = $event" ngModel required #phone_of_seller="ngModel" placeholder="Phone of seller" type="text"/>
                 </div>
             </div>
-            <button  class="btn">Add</button>
+            <button [disabled]="addNewForm.form.invalid" (click)="Submit()" class="btn">Add</button>
         </div>
-    </div>
+    </form>
 </div>

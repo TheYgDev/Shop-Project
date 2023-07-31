@@ -10,8 +10,7 @@
       "phone_of_seller": "052-334-6866",
       "category": { "id": 3, "name": "men's clothing" },
       "dateOfPublish": "2022-04-09T23:10:02.693Z",
-      "qnt":15
-      
+      "qnt": 15
     },
     {
       "id": 2,
@@ -23,8 +22,7 @@
       "phone_of_seller": "052-500-3373",
       "category": { "id": 3, "name": "men's clothing" },
       "dateOfPublish": "2020-03-05T15:02:03.946Z",
-      "qnt":20
-      
+      "qnt": 20
     },
     {
       "id": 3,
@@ -36,8 +34,7 @@
       "phone_of_seller": "053-130-1165",
       "category": { "id": 3, "name": "men's clothing" },
       "dateOfPublish": "2020-06-07T18:54:32.836Z",
-      "qnt":38
-  
+      "qnt": 38
     },
     {
       "id": 4,
@@ -49,8 +46,7 @@
       "phone_of_seller": "054-073-9355",
       "category": { "id": 3, "name": "men's clothing" },
       "dateOfPublish": "2018-04-13T02:39:16.800Z",
-      "qnt":34
-      
+      "qnt": 34
     },
     {
       "id": 5,
@@ -62,8 +58,7 @@
       "phone_of_seller": "053-136-4351",
       "category": { "id": 2, "name": "jewelery" },
       "dateOfPublish": "2019-04-26T06:17:35.151Z",
-      "qnt":42
-      
+      "qnt": 42
     },
     {
       "id": 6,
@@ -75,8 +70,7 @@
       "phone_of_seller": "050-072-1329",
       "category": { "id": 2, "name": "jewelery" },
       "dateOfPublish": "2018-10-27T01:51:33.254Z",
-      "qnt":46
-      
+      "qnt": 46
     },
     {
       "id": 7,
@@ -88,8 +82,7 @@
       "phone_of_seller": "054-385-3969",
       "category": { "id": 2, "name": "jewelery" },
       "dateOfPublish": "2018-04-21T08:19:25.683Z",
-      "qnt":34
-      
+      "qnt": 34
     },
     {
       "id": 8,
@@ -101,8 +94,7 @@
       "phone_of_seller": "052-216-6867",
       "category": { "id": 2, "name": "jewelery" },
       "dateOfPublish": "2021-11-25T09:07:36.909Z",
-      "qnt":12
-      
+      "qnt": 12
     },
     {
       "id": 9,
@@ -114,8 +106,7 @@
       "phone_of_seller": "054-661-5553",
       "category": { "id": 1, "name": "electronics" },
       "dateOfPublish": "2021-01-01T09:48:33.425Z",
-      "qnt":9
-      
+      "qnt": 9
     },
     {
       "id": 10,
@@ -127,8 +118,7 @@
       "phone_of_seller": "054-162-0257",
       "category": { "id": 1, "name": "electronics" },
       "dateOfPublish": "2018-11-17T22:05:38.896Z",
-      "qnt":50
-      
+      "qnt": 50
     },
     {
       "id": 11,
@@ -140,8 +130,7 @@
       "phone_of_seller": "053-556-6911",
       "category": { "id": 1, "name": "electronics" },
       "dateOfPublish": "2023-02-19T13:20:46.569Z",
-      "qnt":29
-      
+      "qnt": 29
     },
     {
       "id": 12,
@@ -153,8 +142,7 @@
       "phone_of_seller": "054-075-8441",
       "category": { "id": 1, "name": "electronics" },
       "dateOfPublish": "2022-07-14T00:26:10.973Z",
-      "qnt":36
-      
+      "qnt": 36
     },
     {
       "id": 13,
@@ -166,8 +154,7 @@
       "phone_of_seller": "050-118-4617",
       "category": { "id": 1, "name": "electronics" },
       "dateOfPublish": "2019-08-11T07:20:40.356Z",
-      "qnt":21
-      
+      "qnt": 21
     },
     {
       "id": 14,
@@ -179,8 +166,7 @@
       "phone_of_seller": "050-656-9924",
       "category": { "id": 1, "name": "electronics" },
       "dateOfPublish": "2021-03-22T08:06:19.355Z",
-      "qnt":58
-      
+      "qnt": 58
     },
     {
       "id": 15,
@@ -192,8 +178,7 @@
       "phone_of_seller": "052-094-8738",
       "category": { "id": 4, "name": "women's clothing" },
       "dateOfPublish": "2019-07-21T01:53:04.729Z",
-      "qnt":32
-      
+      "qnt": 32
     },
     {
       "id": 16,
@@ -205,8 +190,7 @@
       "phone_of_seller": "050-840-4221",
       "category": { "id": 4, "name": "women's clothing" },
       "dateOfPublish": "2019-11-03T02:56:23.158Z",
-      "qnt":23
-      
+      "qnt": 23
     },
     {
       "id": 17,
@@ -218,8 +202,7 @@
       "phone_of_seller": "054-050-0442",
       "category": { "id": 4, "name": "women's clothing" },
       "dateOfPublish": "2022-06-21T07:01:18.901Z",
-      "qnt":19
-      
+      "qnt": 19
     },
     {
       "id": 18,
@@ -231,8 +214,7 @@
       "phone_of_seller": "054-025-8556",
       "category": { "id": 4, "name": "women's clothing" },
       "dateOfPublish": "2023-04-14T05:11:13.482Z",
-      "qnt":12
-      
+      "qnt": 12
     },
     {
       "id": 19,
@@ -244,8 +226,7 @@
       "phone_of_seller": "052-734-6075",
       "category": { "id": 4, "name": "women's clothing" },
       "dateOfPublish": "2022-05-06T03:05:02.593Z",
-      "qnt":17
-      
+      "qnt": 17
     },
     {
       "id": 20,
@@ -257,8 +238,7 @@
       "phone_of_seller": "053-170-9912",
       "category": { "id": 4, "name": "women's clothing" },
       "dateOfPublish": "2022-09-15T23:58:10.556Z",
-      "qnt":15
-      
+      "qnt": 15
     }
   ],
   "categories": [

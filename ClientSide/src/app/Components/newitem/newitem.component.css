@@ -150,3 +150,7 @@ a:hover{
     background-position-x: 95%;
     background-position-y: center;
 }
+
+.error{
+    color: red;
+}

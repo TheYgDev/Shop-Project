@@ -23,7 +23,6 @@ export class ItemService {
     return this.httpClient.get(this.Url + "categories"); 
   }
   getByCategory(category: Category):Observable<Item[]> {
-    console.log(category.id);
     return this.httpClient.get(this.Url + `categories/${category.id}`)
     .pipe(map(this.itemAdapter.adaptArray));
   }
@@ -37,7 +36,7 @@ export class ItemService {
   }
 
   post(item: Item) {
-    return this.httpClient.post(this.Url, item);
+    return this.httpClient.post(this.Url+"add", item);
   }
 
   put(i: Item) {

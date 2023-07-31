@@ -51,7 +51,29 @@ router.get('/:id', async (req, res) => {
 });
 
 
+router.post('/add', async (req, res) => { 
+  let { name, price, description, image, city, phone_of_seller, category, qnt } = req.body;
+  let dateOfPublish = new Date();
+  let db = await getDb()
+  let json = JSON.parse(db);
 
+  let item = {
+    id: getNextIdForArray(json.items),
+    name: name,
+    price: price,
+    description: description,
+    image: image,
+    city: city,
+    phone_of_seller: phone_of_seller,
+    category: category,
+    dateOfPublish: dateOfPublish,
+    qnt: qnt,
+  };
+  json.items.push(item);
+  await writeDb(json);
+
+  res.end(`${item.id}`)
+})
 
 router.post('/checkout', async (req, res) => {
     const itemsToCheckout = req.body;
@@ -82,7 +104,6 @@ router.post('/checkout', async (req, res) => {
     });
   }
 
-  // Update the quantities in the database (for simplicity, I'm just updating the in-memory JSON object)
   itemsToCheckout.forEach((itemToCheckout) => {
     const itemInDBIndex = db.items.findIndex((item) => item.id === itemToCheckout.id);
     if (itemInDBIndex != -1) {
@@ -91,7 +112,7 @@ router.post('/checkout', async (req, res) => {
     }
   });
     
-//    await writeDb(db);
+   await writeDb(db);
     
   return res.status(200).json({ message: 'Checkout successful!' });
 });
